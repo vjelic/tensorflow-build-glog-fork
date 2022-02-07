@@ -42,7 +42,8 @@ jax ~= 0.2.26
 jaxlib ~= 0.1.75
 
 # Needs to be addressed. Unblocked 2.4 branchcut cl/338377048
-PyYAML ~= 5.4.1
+# Added in ROCm docker via distutils
+# PyYAML ~= 5.4.1
 
 # For uploading
 auditwheel ~= 5.0.0

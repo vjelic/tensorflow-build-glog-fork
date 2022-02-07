@@ -17,9 +17,6 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F23C5A6CF475977595C89F5
 
 # Set up custom sources
 cat >/etc/apt/sources.list.d/custom.list <<SOURCES
-# Nvidia CUDA packages: 18.04 has more available than 20.04, and we use those
-deb https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /
-
 # More Python versions: Deadsnakes
 deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal main
 deb-src http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal main
