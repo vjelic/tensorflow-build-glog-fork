@@ -17,9 +17,8 @@ RUN /build_devtoolset.sh devtoolset-7 /dt7
 # Install devtoolset-9 in /dt9 with glibc 2.17 and libstdc++ 4.8, for building
 # manylinux2014-compatible packages.
 RUN /build_devtoolset.sh devtoolset-9 /dt9 
-
 ################################################################################
-FROM rocm/tensorflow-autobuilds:ubuntu20.04-rocm4.5.2 as devel
+#FROM rocm/tensorflow-autobuilds:ubuntu20.04-rocm4.5.2 as devel
 ################################################################################
 COPY --from=builder /dt7 /dt7
 COPY --from=builder /dt9 /dt9
@@ -31,8 +30,7 @@ COPY setup.sources.sh /setup.sources.sh
 COPY setup.packages.sh /setup.packages.sh
 COPY setup.rocm.sh /setup.rocm.sh
 COPY devel.packages.txt /devel.packages.txt
-RUN /setup.sources.sh && /setup.packages.sh /devel.packages.txt
-# && /setup.rocm.sh $ROCM_VERS 
+RUN /setup.sources.sh && /setup.packages.sh /devel.packages.txt && /setup.rocm.sh $ROCM_VERS 
 
 # Install various tools.
 # - bats: bash unit testing framework
