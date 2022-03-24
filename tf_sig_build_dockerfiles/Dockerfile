@@ -12,7 +12,7 @@ RUN /setup.packages.sh /builder.packages.txt
 COPY builder.devtoolset/fixlinks.sh /fixlinks.sh
 COPY builder.devtoolset/rpm-patch.sh /rpm-patch.sh
 COPY builder.devtoolset/build_devtoolset.sh /build_devtoolset.sh
-RUN /build_devtoolset.sh devtoolset-7 /dt7 
+RUN /build_devtoolset.sh devtoolset-8 /dt8 
 
 # Install devtoolset-9 in /dt9 with glibc 2.17 and libstdc++ 4.8, for building
 # manylinux2014-compatible packages.
