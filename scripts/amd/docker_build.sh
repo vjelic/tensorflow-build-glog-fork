@@ -12,4 +12,4 @@ echo $DOCKERIMAGE_NAME
 
 # build docker
 cd tf_sig_build_dockerfiles
-docker build -t sig_build .
+docker build --build-arg ROCM_VERS=5.1.1 --build-arg PYTHON_VERSION=python3.8 -t sig_build .
