@@ -11,4 +11,5 @@ DOCKERIMAGE_NAME=$(echo "$DOCKERFILE_NAME" | cut -f 2- -d '.')
 echo $DOCKERIMAGE_NAME
 
 # build docker
-docker build -f $DOCKERFILE_PATH -t sig_build .
+cd tf_sig_build_dockerfiles
+docker build -t sig_build .
