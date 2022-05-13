@@ -12,13 +12,13 @@ RUN /setup.packages.sh /builder.packages.txt
 COPY builder.devtoolset/fixlinks.sh /fixlinks.sh
 COPY builder.devtoolset/rpm-patch.sh /rpm-patch.sh
 COPY builder.devtoolset/build_devtoolset.sh /build_devtoolset.sh
-RUN /build_devtoolset.sh devtoolset-8 /dt8 
+RUN /build_devtoolset.sh devtoolset-7 /dt7
 
 # Install devtoolset-9 in /dt9 with glibc 2.17 and libstdc++ 4.8, for building
 # manylinux2014-compatible packages.
 RUN /build_devtoolset.sh devtoolset-9 /dt9 
 ################################################################################
-#FROM rocm/tensorflow-autobuilds:ubuntu20.04-rocm4.5.2 as devel
+FROM rocm/tensorflow-autobuilds:latest as devel
 ################################################################################
 COPY --from=builder /dt7 /dt7
 COPY --from=builder /dt9 /dt9
