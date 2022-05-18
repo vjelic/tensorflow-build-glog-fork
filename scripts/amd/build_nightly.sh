@@ -11,7 +11,7 @@ bazel --bazelrc=/usertools/gpu.bazelrc \
     /tf/pkg \
     --nightly_flag
 
-# check wheels
+# check wheels are manylinux !Important
 /usertools/rename_and_verify_wheels.sh
 
 # check package
