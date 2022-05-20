@@ -1,3 +1,5 @@
+cd /tf/tensorflow
+
 # update version
 python3 tensorflow/tools/ci_build/update_version.py --nightly
 
