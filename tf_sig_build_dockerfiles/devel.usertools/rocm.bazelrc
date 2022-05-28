@@ -37,7 +37,7 @@ build --copt=-mavx --host_copt=-mavx
 build --profile=/tf/pkg/profile.json
 
 # ROCm: Set up compilation ROCm version and paths
-build --config=opt --config=rocm
+build --config=rocm
 build --repo_env TF_NEED_ROCM=1
 build --action_env=ROCM_PATH="/opt/rocm/"
 build --action_env=GCC_HOST_COMPILER_PATH="/dt7/usr/bin/gcc"
