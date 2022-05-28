@@ -4,7 +4,7 @@ cd /tf/tensorflow
 python3 tensorflow/tools/ci_build/update_version.py --nightly
 
 # build tensorflow gpu
-bazel --bazelrc=/usertools/gpu.bazelrc \
+bazel --bazelrc=/usertools/rocm.bazelrc \
     build --config=sigbuild_local_cache \
     tensorflow/tools/pip_package:build_pip_package
 
