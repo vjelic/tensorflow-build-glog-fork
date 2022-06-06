@@ -42,6 +42,7 @@ build --repo_env=TF_NEED_ROCM=1
 build --action_env=ROCM_PATH="/opt/rocm/"
 build --action_env=GCC_HOST_COMPILER_PATH="/dt9/usr/bin/gcc"
 build --action_env=TF_SYSROOT="/dt9/usr/include"
+# build --action_env=GCC_HOST_COMPILER_PREFIX="/usr/bin"
 build --action_env=GCC_HOST_COMPILER_PREFIX="/dt9/usr/bin"
 build --action_env=ROCBLAS_TENSILE_LIBPATH="/opt/rocm/lib/library"
 build --action_env=LD_LIBRARY_PATH="/opt/rocm:/opt/rocm/lib:/dt9/lib:/dt9/lib64"
