@@ -12,4 +12,4 @@ echo $DOCKERIMAGE_NAME
 
 # build docker
 cd tf_sig_build_dockerfiles
-DOCKER_BUILDKIT=1 docker build --build-arg ROCM_VERS=5.1.1 --build-arg PYTHON_VERSION=python3.8 --target=devel -t my-tf-devel .
+DOCKER_BUILDKIT=1 docker build --build-arg ROCM_VERS=5.1 --build-arg PYTHON_VERSION=python3.8 --target=devel -t my-tf-devel .
