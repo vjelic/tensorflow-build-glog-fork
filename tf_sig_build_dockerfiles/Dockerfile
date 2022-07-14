@@ -19,7 +19,10 @@ RUN /build_devtoolset.sh devtoolset-7 /dt7
 # manylinux2014-compatible packages.
 RUN /build_devtoolset.sh devtoolset-9 /dt9 
 ################################################################################
-FROM rocm/tensorflow-autobuilds:latest as devel
+# FROM rocm/tensorflow-autobuilds:latest as devel
+# FROM rocm/tensorflow:rocm5.2.0-tf2.9-dev as devel
+# FROM rocm/tensorflow:rocm5.1.0-tf2.9-dev as devel
+FROM rocm/tensorflow:rocm5.1-tf2.8-dev as devel
 ################################################################################
 COPY --from=builder /dt7 /dt7
 COPY --from=builder /dt9 /dt9
