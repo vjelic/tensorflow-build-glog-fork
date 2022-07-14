@@ -12,6 +12,7 @@ VOLUMES="-v $HOME/dockerx:/dockerx -v /data:/data -v /tmp/packages:/tf/pkg -v /h
 # WORK_DIR="/root/$(basename $(pwd))"
 WORK_DIR="/dockerx/$(basename $(pwd))"
 
+# IMAGE_NAME=rocm/tensorflow:rocm5.1-tf2.8-dev
 # IMAGE_NAME=rocm/tensorflow:rocm5.2.0-tf2.9-dev
 IMAGE_NAME=my-tf
 CONTAINER_NAME=sig_build

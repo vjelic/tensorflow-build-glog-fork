@@ -55,7 +55,8 @@ build --action_env=GCC_HOST_COMPILER_PATH="/dt9/usr/bin/gcc"
 build --action_env=TF_SYSROOT="/dt9"
 build --action_env=GCC_HOST_COMPILER_PREFIX="/usr/bin"
 build --action_env=ROCBLAS_TENSILE_LIBPATH="/opt/rocm/lib/library"
-build --action_env=LD_LIBRARY_PATH="/opt/rocm:/opt/rocm/lib"
+build --action_env=CPATH=".:/dt9/usr/include:/usr/include:/usr/local/include"
+build --action_env=LD_LIBRARY_PATH="/opt/rocm:/opt/rocm/lib:/usr/local/lib:/dt9/usr/bin/gcc" 
 build --crosstool_top=@ubuntu20.04-gcc9_manylinux2014-rocm_config_rocm//crosstool:toolchain
 
 
