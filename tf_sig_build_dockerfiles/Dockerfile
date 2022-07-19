@@ -22,7 +22,9 @@ RUN /build_devtoolset.sh devtoolset-9 /dt9
 # FROM rocm/tensorflow-autobuilds:latest as devel
 # FROM rocm/tensorflow:rocm5.2.0-tf2.9-dev as devel
 # FROM rocm/tensorflow:rocm5.1.0-tf2.9-dev as devel
-FROM rocm/tensorflow:rocm5.1-tf2.8-dev as devel
+#FROM rocm/tensorflow:rocm5.1-tf2.8-dev as devel
+#FROM rocm/tensorflow-autobuilds:ubuntu20.04-rocm5.2.0-multipython as devel
+FROM rocm/dev-ubuntu-20.04:5.2-complete as devel
 ################################################################################
 COPY --from=builder /dt7 /dt7
 COPY --from=builder /dt9 /dt9
@@ -45,7 +47,7 @@ RUN git clone --branch v1.5.0 https://github.com/bats-core/bats-core.git && bats
 RUN wget https://github.com/bazelbuild/bazelisk/releases/download/v1.7.4/bazelisk-linux-amd64 -O /usr/local/bin/bazel && chmod +x /usr/local/bin/bazel
 RUN wget https://github.com/bazelbuild/buildtools/releases/download/3.5.0/buildifier -O /usr/local/bin/buildifier && chmod +x /usr/local/bin/buildifier
 RUN wget https://github.com/bazelbuild/buildtools/releases/download/3.5.0/buildozer -O /usr/local/bin/buildozer && chmod +x /usr/local/bin/buildozer
-RUN curl -sSL https://sdk.cloud.google.com > /tmp/gcl && bash /tmp/gcl --install-dir=~/usr/local/bin --disable-prompts
+#RUN curl -sSL https://sdk.cloud.google.com > /tmp/gcl && bash /tmp/gcl --install-dir=~/usr/local/bin --disable-prompts
 # RUN wget https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz -O /clang.tar.xz && tar xf /clang.tar.xz clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/clang-format && mv ./clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/clang-format /usr/local/bin/clang-format && rm -rf ./clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu.tar.xz ./clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu
 
 
@@ -64,4 +66,3 @@ RUN /setup.python.sh $PYTHON_VERSION /devel.requirements.txt
 # Setup build and environment
 COPY devel.usertools /usertools
 COPY devel.bashrc /root/.bashrc
-

@@ -49,16 +49,22 @@ build --profile=/tf/pkg/profile.json
 
 build --config=rocm
 build --repo_env=TF_NEED_ROCM=1
-build --action_env=ROCM_PATH="/opt/rocm"
-build --action_env ROCM_ROOT="/opt/rocm"
+build --action_env=ROCM_PATH="/opt/rocm-5.2.0"
+#build --action_env ROCM_ROOT="/opt/rocm"
 build --action_env=GCC_HOST_COMPILER_PATH="/dt9/usr/bin/gcc"
-build --action_env=TF_SYSROOT="/dt9"
-build --action_env=GCC_HOST_COMPILER_PREFIX="/usr/bin"
-build --action_env=ROCBLAS_TENSILE_LIBPATH="/opt/rocm/lib/library"
-build --action_env=CPATH=".:/dt9/usr/include:/usr/include:/usr/local/include"
-build --action_env=LD_LIBRARY_PATH="/opt/rocm:/opt/rocm/lib:/usr/local/lib:/dt9/usr/bin/gcc" 
-build --crosstool_top=@ubuntu20.04-gcc9_manylinux2014-rocm_config_rocm//crosstool:toolchain
+#build --action_env=TF_SYSROOT="/dt9"
+#build --action_env=GCC_HOST_COMPILER_PREFIX="/usr/bin"
+#build --action_env=ROCBLAS_TENSILE_LIBPATH="/opt/rocm/lib/library"
+#build --action_env=CPATH=".:/dt9/usr/include:/usr/include:/usr/local/include"
+#build --action_env=LD_LIBRARY_PATH="/opt/rocm:/opt/rocm/lib:/usr/local/lib:/dt9/usr/bin/gcc" 
+build --action_env=LD_LIBRARY_PATH="/opt/rocm-5.2.0:/opt/rocm-5.2.0/lib
+#build --crosstool_top=@ubuntu20.04-gcc9_manylinux2014-rocm_config_rocm//crosstool:toolchain
 
+build:rocm --crosstool_top=@local_config_rocm//crosstool:toolchain
+#build:rocm --define=using_rocm_hipcc=true
+#build:rocm --define=tensorflow_mkldnn_contraction_kernel=0
+#build:rocm --repo_env TF_NEED_ROCM=1
+#build:rocm --experimental_link_static_libraries_once=false  # b/230048163
 
 # Test-related settings below this point.
 test --build_tests_only --keep_going --test_output=errors --verbose_failures=true
