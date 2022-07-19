@@ -18,6 +18,10 @@ RUN /build_devtoolset.sh devtoolset-7 /dt7
 # Install devtoolset-9 in /dt9 with glibc 2.17 and libstdc++ 4.8, for building
 # manylinux2014-compatible packages.
 RUN /build_devtoolset.sh devtoolset-9 /dt9 
+
+# Install devtoolset-10 to match frameworks internal
+# RUN /build_devtoolset.sh devtoolset-10 /dt10
+
 ################################################################################
 # FROM rocm/tensorflow-autobuilds:latest as devel
 # FROM rocm/tensorflow:rocm5.2.0-tf2.9-dev as devel
@@ -26,6 +30,7 @@ FROM rocm/tensorflow:rocm5.1-tf2.8-dev as devel
 ################################################################################
 COPY --from=builder /dt7 /dt7
 COPY --from=builder /dt9 /dt9
+# COPY --from=builder /dt10 /dt10
 
 # Install required development packages
 # Install ROCm by version, i.e. 4.5.2
@@ -59,6 +64,7 @@ RUN echo $CACHEBUSTER
 ARG PYTHON_VERSION
 COPY setup.python.sh /setup.python.sh
 COPY devel.requirements.txt /devel.requirements.txt
+# RUN ln -sf /usr/lib/python3.9 /usr/lib/tf_python
 RUN /setup.python.sh $PYTHON_VERSION /devel.requirements.txt
 
 # Setup build and environment
