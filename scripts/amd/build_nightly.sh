@@ -1,7 +1,11 @@
+set -e
+
 cd /tf/tensorflow
 
 # update version
 python3 tensorflow/tools/ci_build/update_version.py --nightly
+
+cp -rf /dockerx/tensorflow-build/tf_sig_build_dockerfiles/devel.usertools/. /usertools
 
 # build tensorflow gpu
 bazel --bazelrc=/usertools/rocm.bazelrc \
