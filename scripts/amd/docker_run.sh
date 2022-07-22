@@ -14,12 +14,13 @@ WORK_DIR="/dockerx/$(basename $(pwd))"
 
 # IMAGE_NAME=rocm/tensorflow:rocm5.1-tf2.8-dev
 # IMAGE_NAME=rocm/tensorflow:rocm5.2.0-tf2.9-dev
-IMAGE_NAME=my-tf
+# IMAGE_NAME=my-tf
+IMAGE_NAME=my-tf-devel
 CONTAINER_NAME=sig_build
 
 ls /tmp
 # rm -rf /tmp/tensorflow
-git clone -b sigbuild_changes https://github.com/ROCmSoftwarePlatform/tensorflow-upstream ~/dockerx/tensorflow-upstream
+# git clone -b sigbuild_changes https://github.com/ROCmSoftwarePlatform/tensorflow-upstream ~/dockerx/tensorflow-upstream
 
 # start new container
 CONTAINER_ID=$(drun -d -w $WORK_DIR --name $CONTAINER_NAME $MEMORY $VOLUMES $DEVICES $IMAGE_NAME)
