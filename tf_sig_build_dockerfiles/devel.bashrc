@@ -20,6 +20,10 @@
 # Set up attractive prompt
 export PS1="\[\e[31m\]tf-docker\[\e[m\] \[\e[33m\]\w\[\e[m\] > "
 export TERM=xterm-256color
+export ROCM_PATH=/opt/rocm-5.2.0
+export PATH=/dt9/usr/bin:${ROCM_PATH}/llvm/bin:${ROCM_PATH}/hip/bin:${ROCM_PATH}/bin:${ROCM_PATH}/llvm/bin:${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/dt9/usr/lib:/dt9/usr/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LDFLAGS="-Wl,-rpath=/dt9/usr/lib64 -Wl,-rpath=/dt9/usr/lib"
 alias grep="grep --color=auto"
 alias ls="ls --color=auto"
 # Fix nvidia-docker

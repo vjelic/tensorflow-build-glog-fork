@@ -17,3 +17,4 @@ cd tf_sig_build_dockerfiles
 # DOCKER_BUILDKIT=1 docker build --build-arg PYTHON_VERSION=python3.9 --target=devel -t my-tf-devel .
 # DOCKER_BUILDKIT=1 docker build --build-arg ROCM_VERS=5.2 PYTHON_VERSION=python3.9 --target=devel -t my-tf-devel .
 DOCKER_BUILDKIT=1 docker build --no-cache --build-arg PYTHON_VERSION=python3.9 --build-arg ROCM_VERS=5.2 --target=devel -t my-tf-devel .
+# DOCKER_BUILDKIT=1 docker build --build-arg PYTHON_VERSION=python3.9 --build-arg ROCM_VERS=5.2 --target=devel -t my-tf-devel .
