@@ -1,6 +1,8 @@
+set -x
+
 cd tf_sig_build_dockerfiles
 
-DOCKER_BUILDKIT=1 docker build --no-cache --build-arg PYTHON_VERSION=python3.9 --build-arg ROCM_VERS=5.2 --target=devel -t my-tf-devel .
+# DOCKER_BUILDKIT=1 docker build --no-cache --build-arg PYTHON_VERSION=python3.9 --build-arg ROCM_VERS=5.2 --target=devel -t my-tf-devel .
 
 docker run --name tf -w /tf/tensorflow -it -d -v "/tmp/packages:/tf/pkg" \
     -v "/home/master/dockerx/tensorflow-upstream:/tf/tensorflow" \
