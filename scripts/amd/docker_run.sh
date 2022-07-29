@@ -7,19 +7,21 @@ DEVICES="--device=/dev/kfd --device=/dev/dri"
 
 MEMORY="--ipc=host --shm-size 16G"
 
-VOLUMES="-v $HOME/dockerx:/dockerx -v /data:/data -v /tmp/packages:/tf/pkg -v /home/master/dockerx/tensorflow-upstream:/tf/tensorflow -v /tmp/bazelcache:/tf/cache"
+VOLUMES="-v $HOME/dockerx:/dockerx -v /tmp/packages:/tf/pkg -v /home/master/dockerx/tensorflow-upstream:/tf/tensorflow -v /tmp/bazelcache:/tf/cache"
 
 # WORK_DIR="/root/$(basename $(pwd))"
 WORK_DIR="/dockerx/$(basename $(pwd))"
+# WORK_DIR="/tf/tensorflow"
 
 # IMAGE_NAME=rocm/tensorflow:rocm5.1-tf2.8-dev
 # IMAGE_NAME=rocm/tensorflow:rocm5.2.0-tf2.9-dev
+IMAGE_NAME=rocm/tensorflow-private:sig_build_whl
 # IMAGE_NAME=my-tf
-IMAGE_NAME=my-tf-devel
+# IMAGE_NAME=my-tf-devel
 CONTAINER_NAME=sig_build
 
-ls /tmp
-# rm -rf /tmp/tensorflow
+# ls /tmp
+rm -rf /tmp/tensorflow
 # git clone -b sigbuild_changes https://github.com/ROCmSoftwarePlatform/tensorflow-upstream ~/dockerx/tensorflow-upstream
 
 # start new container

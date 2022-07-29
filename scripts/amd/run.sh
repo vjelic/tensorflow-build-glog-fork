@@ -1,6 +1,6 @@
 clear
 
-set -x
+# set -x
 # set -e
 
 ROOT_DIR=$(pwd)
@@ -12,8 +12,10 @@ chmod -R 777 $LOG_DIR
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
-
 # cd "/root/.bazel/bin" && curl -fLO https://releases.bazel.build/5.1.1/release/bazel-5.1.1-linux-x86_64 && chmod +x bazel-5.1.1-linux-x86_64
+# cd "/root/.bazel/bin" && curl -fLO https://releases.bazel.build/5.0.0/release/bazel-5.0.0-linux-x86_64 && chmod +x bazel-5.0.0-linux-x86_64
+
+# rm -rf /tmp/pkg/
 
 cd $ROOT_DIR
 bash scripts/amd/build_nightly.sh $LOG_DIR 2>&1 | tee $LOG_DIR/build_nightly.log
