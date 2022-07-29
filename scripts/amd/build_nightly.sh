@@ -12,13 +12,13 @@ bazel --bazelrc=/usertools/rocm.bazelrc \
     build --config=sigbuild_local_cache \
     tensorflow/tools/pip_package:build_pip_package
 
-# # construct tensorflow pip package
-# ./bazel-bin/tensorflow/tools/pip_package/build_pip_package \
-#     /tf/pkg \
-#     --nightly_flag
+# construct tensorflow pip package
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package \
+    /tf/pkg \
+    --nightly_flag
 
 # # check wheels are manylinux !Important
-# /usertools/rename_and_verify_wheels.sh
+/usertools/rename_and_verify_wheels.sh
 
 # # check package
 # ls -al /tmp/packages
